@@ -1,0 +1,63 @@
+<cu-custom bgColor="bg-gradual-purple" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">参与活动</view>
+</cu-custom>
+
+<view class="padding">
+  <!--主办人信息-->
+  <view class="cu-form-group ">
+    <view class="title">姓名</view>
+    <input placeholder="请输入真实姓名" bindinput="getname"></input>
+  </view>
+  <view class="cu-form-group margin-top">
+		<view class="title">选择类别</view>
+		<picker bindchange="PickerChange" value="{{pickerindex}}" range="{{picker}}">
+			<view class="picker">
+				{{picker[pickerindex]}}
+			</view>
+		</picker>
+	</view>
+  <!--view class="cu-form-group">
+      <view class="title">联系方式</view>
+      <input placeholder="请输入联系方式" bindinput="getphone"></input>
+    </view-->
+  <view class="cu-form-group align-start" style="text-aligen:left;">
+    <view class="title">自我介绍</view>
+    <textarea maxlength="-1" bindinput="textareaBInput" placeholder="请输入自我介绍" bindinput="getintro"></textarea>
+  </view>
+  <view class="cu-bar bg-white margin-top">
+    <view class="action">
+      图片上传
+    </view>
+    <view class="action">
+      {{imgList.length}}/6
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="grid col-3 grid-square flex-sub">
+      <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+        <image src="{{imgList[index]}}" mode="aspectFill"></image>
+        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="cuIcon-close"></text>
+        </view>
+      </view>
+      <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<6}}">
+        <text class="cuIcon-cameraadd"></text>
+      </view>
+    </view>
+  </view>
+  <view class="cu-form-group">
+		<view class="title">自我介绍视频(可选*)</view>
+		<input placeholder="输入框带个图标" value="{{videoList.length}}/3"></input>
+		<text class="cuIcon-album text-green" bindtap="upvideo"></text>
+  </view>
+  <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="false" interval="50000" duration="500" bindchange="swiperchange" wx:if="{{videoList.length > 0}}">
+  <swiper-item wx:for="{{videoList}}" wx:key="item" >
+    <video src="{{item.url}}"  objectFit="contain" id="video{{index}}" ></video>
+  </swiper-item>
+</swiper>
+  <view class="padding-xl">
+    <button class="cu-btn block line-cyan lg" bindtap="joinpub">
+      <text class="cuIcon-upload"></text> 发布</button>
+  </view>
+</view>

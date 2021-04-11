@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/rank/rank",
+    "pages/index/index",
+    "pages/self/myvote",
+    
+    "pages/show/show",
+    "pages/license/license",
+    "pages/self/pass",
+    "pages/index/joinact",
+    "pages/self/self",
+    "pages/self/pubact"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#11C2EE",
+    "navigationBarTitleText": "OS Rebuid",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/indexs.png"
+      },
+      {
+        "pagePath": "pages/rank/rank",
+        "text": "排名",
+        "iconPath": "images/rank.png",
+        "selectedIconPath": "images/ranks.png"
+      },
+      {
+        "pagePath": "pages/self/self",
+        "text": "个人中心",
+        "iconPath": "images/se.png",
+        "selectedIconPath": "images/ses.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于定位效果展示"
+    }
+  },
+  "usingComponents": {
+    "cu-custom": "components/custom/cu-custom",
+    "poster": "wxa-plugin-canvas/poster"
+  },
+  "sitemapLocation": "sitemap.json"
+}

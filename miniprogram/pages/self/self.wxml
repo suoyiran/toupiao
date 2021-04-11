@@ -1,0 +1,67 @@
+<scroll-view scroll-y class="scrollPage">
+	<view class="UCenter-bg">
+
+		<view class='photo'>
+			<open-data type="userAvatarUrl" class="png" mode="widthFix"></open-data>
+		</view>
+		<view class="text-xl">
+			<open-data type="userNickName"></open-data>
+
+		</view>
+
+		<image src="https://s1.ax1x.com/2020/05/31/tlXe9s.gif" mode="scaleToFill" class="gif-wave"></image>
+	</view>
+	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+		<!--个人信息没必要展示，默默请求就行-->
+		<!--view class="cu-item arrow">
+      <view class="content" bindtap="showInfo">
+        <text class="cuIcon-profile text-green"></text>
+        <text class="text-grey">个人信息</text>
+      </view>
+		</view-->
+		<view class="cu-item arrow" >
+			<navigator class="content" url="../license/license" hover-class="none">
+				<text class="cuIcon-news text-red"></text>
+				<text class="text-grey">MVote</text>
+			</navigator>
+		</view>
+		<view class="cu-item arrow" wx:if="{{isAdmin}}">
+			<navigator class="content" url="pubact" hover-class="none">
+				<text class="cuIcon-write text-yellow"></text>
+				<text class="text-grey">发布</text>
+			</navigator>
+		</view>
+		<view class="cu-item arrow" wx:if="{{isAdmin}}">
+			<navigator class="content" url="pass" hover-class="none">
+				<text class="cuIcon-notice text-green"></text>
+				<text class="text-grey">审核</text>
+			</navigator>
+		</view>
+		<view class="cu-item arrow">
+			<view class="content" url="myvote" hover-class="none" bindtap="showrank">
+				<text class="cuIcon-likefill text-red"></text>
+				<text class="text-grey">我的投票</text>
+			</view>
+		</view>
+		<!--view class="cu-item arrow">
+			<navigator class="content" url="myrank" hover-class="none">
+				<text class="cuIcon-rank text-red"></text>
+				<text class="text-grey">我的排名</text>
+			</navigator>
+		</view-->
+		<view class="cu-item arrow">
+			<button class="cu-btn content" open-type="contact">
+				<text class="cuIcon-service text-olive"></text>
+				<text class="text-grey">联系客服</text>
+			</button>
+		</view>
+		<view class="cu-item arrow">
+			<button class="cu-btn content" open-type="feedback">
+				<text class="cuIcon-writefill text-cyan"></text>
+				<text class="text-grey">意见反馈</text>
+			</button>
+		</view>
+	
+	</view>
+	<view class="cu-tabbar-height"></view>
+</scroll-view>

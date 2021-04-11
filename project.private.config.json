@@ -1,0 +1,24 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "License页面",
+          "pathName": "pages/license/license",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

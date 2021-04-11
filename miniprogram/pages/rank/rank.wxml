@@ -1,0 +1,36 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
+  <view slot="content">排名</view>
+</cu-custom>
+<swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{1}}" wx:key>
+    <image src="https://766f-vote-2gfub75a687652ec-1300875956.tcb.qcloud.la/boot.jpg?sign=bece995c2e591a121d0711eac38df6f5&t=1605184082" mode="aspectFill"></image>
+  </swiper-item>
+</swiper>
+<view class="padding-xl radius shadow bg-white">
+  <view class="cu-list menu-avatar" wx:for="{{10}}" wx:key="item" bindtap="toshow" data-id="{{item._id}}">
+    <image class=" radius lg" style="width:60rpx;height:60rpx;float:left;margin-top:40rpx;" src="../../images/prize-{{index+1}}.png"  wx:if="{{index <= 2}}"></image>
+    <view style="margin-left:-30px;width:30rpx;height:60rpx;float:left;margin-top:40rpx;font-size:25px;" wx:if="{{index <= 2}}">
+      
+    </view>
+    <view style="width:30rpx;height:60rpx;float:left;margin-top:40rpx;font-size:25px;" wx:else>
+      <text>{{index}}</text>
+    </view>
+    
+  <view class="cu-item ">
+    
+    <image class="cu-avatar radius lg" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.duitang.com%2Fuploads%2Fitem%2F201206%2F16%2F20120616174342_ycsye.thumb.700_0.jpeg&refer=http%3A%2F%2Fcdn.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620711315&t=35821ee4de0b44bda87c745c5f8dac29"></image>
+    <view class="content">
+      <view class="text-pink">
+        <text class="text-cut">平阴县顺成建筑安装有限公司</text>
+      </view>
+      <view class="text-gray text-sm flex">
+        <text class="text-cut">999票</text>
+      </view>
+    </view>
+    <view class="action">
+      <!---->
+      <view class="cu-tag round bg-red lg">支持+1票</view>
+    </view>
+  </view>
+</view>
+</view>

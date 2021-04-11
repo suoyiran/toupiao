@@ -1,0 +1,22 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">活动审核</view>
+</cu-custom>
+<view class="cu-list menu-avatar" wx:for="{{partlist}}" wx:key="item">
+  <view class="cu-item">
+    <image class="cu-avatar radius lg" src="{{item.firstimg}}"></image>
+
+    <view class="content">
+      <view>
+        <text class="text-cut">{{item.name}}</text>
+        <view class="cu-tag round bg-orange sm">待审核</view>
+      </view>
+      <view class="text-gray text-sm flex">
+        <text class="text-cut"> {{item.intro}}</text>
+      </view>
+    </view>
+    <!--button-->
+    <button class="cu-btn round bg-green shadow" style="margin-right:20rpx;" bindtap="pass" data-id="{{item._id}}">通过</button>
+    <button class="cu-btn round bg-red shadow" bindtap="refuse" data-id="{{item._id}}">拒绝</button>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+{
+  "name": "mvote",
+  "version": "1.0.0",
+  "description": "my vote mini",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "wxa-plugin-canvas": "^1.1.12"
+  }
+}

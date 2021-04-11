@@ -1,0 +1,68 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
+  <view slot="content">{{actinfo.actname}}投票</view>
+</cu-custom>
+<swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"
+  duration="500">
+  <swiper-item wx:for="{{1}}" wx:key>
+    <image
+      src="https://766f-vote-2gfub75a687652ec-1300875956.tcb.qcloud.la/boot.jpg?sign=bece995c2e591a121d0711eac38df6f5&t=1605184082"
+      mode="aspectFill"></image>
+  </swiper-item>
+</swiper>
+<view class="padding-sm">
+  
+  <view class="cu-bar bg-gradual-purple padding radius text-center shadow-blur">
+    <!--view class="action">
+    <text class="cuIcon-title text-blue"></text>渐变背景
+  </view-->
+    <view class="y-center-container">
+      <view style="width:220rpx;">
+        <view class="description">已报名</view>
+        <view class="statistics" style="color: #FE6B23;">{{map.jwsrNum}}</view>
+        <view class="new">{{actinfo.joinnum}}</view>
+      </view>
+      <view style="width:220rpx;">
+        <view class="description">总投票</view>
+        <view class="statistics" style="color: #FE9986;">{{map.asymptomNum}}</view>
+        <view class="new">{{actinfo.votenum}}</view>
+      </view>
+      <view style="width:220rpx;">
+        <view class="description">曝光量</view>
+        <view class="statistics" style="color: #8A121C;">{{map.heconNum}}</view>
+        <view class="new">{{actinfo.exposenum}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-bar bg-gradual-purple search margin-top" >
+    <view class="search-form radius">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="请输入编号/姓名" confirm-type="search" bindinput="getkey"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-cyan shadow-blur round" bindtap="search">搜索</button>
+    </view>
+  </view>
+</view>
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-green cur':''}}" wx:for="{{TabList}}" wx:key bindtap="tabSelect"
+      data-id="{{index}}">
+      {{TabList[index]}}
+    </view>
+  </view>
+</scroll-view>
+<view class="list">
+  <view class='list-half'>
+    <view wx:for="{{listData}}" wx:key="index" wx:if="{{index%2 == 0}}" class='card'>
+      <vote-card item="{{item}}"></vote-card>
+    </view>
+  </view>
+  <view class='list-half'>
+    <view wx:for="{{listData}}" wx:key="item" wx:if="{{index%2 != 0}}" class='card'>
+      <vote-card item="{{item}}"></vote-card>
+    </view>
+  </view>
+</view>
+<button open-type="getUserInfo" bindgetuserinfo="joinact">
+  <image class="add_icon" src="../../images/add.png"></image>
+</button>

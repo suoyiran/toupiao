@@ -1,0 +1,16 @@
+<view class="cu-item shadow">
+
+  <image src="{{item.firstimg}}" style="top:0px;" mode="widthFix" bindtap="toshow" data-id="{{item._id}}"></image>
+  <view>{{item.partid}}-{{item.name}}</view>
+  <view class="text-red">票数:{{item.votenum}}</view>
+  <button class="cu-btn round bg-blue shadow" open-type="getUserInfo" bindgetuserinfo="vote" data-id="{{item._id}}"
+    data-index="{{index}}" wx:if="{{!voted}}" data-name="{{item.name}}" style="margin-top:10rpx;"> <text
+      class="cuIcon-appreciate"></text>投票</button>
+  <button class="cu-btn round bg-grey shadow" wx:if="{{voted}}">已投</button>
+  <view class="action">
+    <view class="cu-avatar-group">
+      <view class="cu-avatar round sm" wx:for="{{item.votelist.length>3?3:item.votelist}}" wx:key wx:for-item="citcem" wx:for-index="cindex"
+        style="background-image:url({{item.votelist[cindex]}});"></view>
+    </view>
+  </view>
+</view>

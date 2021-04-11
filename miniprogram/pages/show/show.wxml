@@ -1,0 +1,69 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">详情展示</view>
+</cu-custom>
+<view wx:if="{{videolist.length==0}}">
+  <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"
+    duration="500">
+    <swiper-item wx:for="{{1}}" wx:key>
+      <image src="{{joininfo.firstimg}}" mode="aspectFill"></image>
+    </swiper-item>
+  </swiper>
+</view>
+
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="false" interval="50000"
+  duration="500" bindchange="swiperchange" wx:if="{{videoList.length!=0}}">
+  <swiper-item wx:for="{{videoList}}" wx:key="item">
+    <video src="{{item.url}}" objectFit="contain" id="video{{index}}"></video>
+  </swiper-item>
+</swiper>
+<view class="padding-sm">
+  <view class="cu-bar bg-gradual-red padding radius text-center shadow-blur">
+    <!--view class="action">
+    <text class="cuIcon-title text-blue"></text>渐变背景
+  </view-->
+    <view class="y-center-container">
+      <view style="width:220rpx;">
+        <view class="description">{{joininfo.joinername}}</view>
+        <view class="statistics" style="color: #FE6B23;">{{map.jwsrNum}}</view>
+        <view class="new">{{actinfo.joinnum}}</view>
+      </view>
+      <view style="width:220rpx;">
+        <view class="description">票数</view>
+        <view class="statistics" style="color: #FE9986;">{{map.asymptomNum}}</view>
+        <view class="new">{{joininfo.votenum}}</view>
+      </view>
+      <view style="width:220rpx;">
+        <view class="description">排名</view>
+        <view class="statistics" style="color: #8A121C;">{{map.heconNum}}</view>
+        <view class="new">{{rank==-1?'99+':rank}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="padding text-center" style="margin-left:100rpx;">
+  <view style="display:flex;">
+    <view style="width:50%;">
+      <button class="cu-btn block line-cyan " open-type="share" style="margin-top:20rpx;width:200rpx;"> <text
+          class="cuIcon-upload"></text> 好友</button>
+    </view>
+    <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+      <view style="width:50%;">
+        <button class="cu-btn block line-red " style="margin-top:20rpx;width:200rpx;"><text
+            class="cuIcon-share"></text> 朋友圈</button>
+      </view>
+    </poster>
+
+  </view>
+</view>
+<scroll-view class='main' scroll-y='true' style="height:{{windowHeight}}px" bindscrolltolower='loadMoreImages'>
+  <image wx:for='{{dataList}}' wx:key='item' src='{{item.imgurl}}'
+    style='position: absolute; top: {{item.top}}px; left: {{item.left}}px; width: {{imgWidth}}px; height: {{item.height}}px'
+    bindload='loadImage' data-index='{{index}}' bindtap='previewImg' />
+</scroll-view>
+<!--button bindtap="vote" wx:if="{{voted}}">
+  <image class="add_icon" src="../../images/voted.png"></image>
+</button>
+<button bindtap="vote" wx:if="{{!voted}}">
+  <image class="add_icon" src="../../images/vote.png"></image>
+</button-->
