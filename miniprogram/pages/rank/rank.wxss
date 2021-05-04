@@ -22,4 +22,7 @@
 .switch-music::before {
   content: "\e6db";
 }
+.menu-avatar{
+  background-color: rgb(238, 240, 240);
+}
 
